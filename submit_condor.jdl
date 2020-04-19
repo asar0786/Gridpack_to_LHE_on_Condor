@@ -1,0 +1,10 @@
+universe = vanilla
+Executable = gridpack_to_LHE_condor.sh
+Should_Transfer_Files = YES
+WhenToTransferOutput = ON_EXIT
+Output = Grid_to_LHE_$(Cluster)_$(Process).stdout
+Error = Grid_to_LHE_$(Cluster)_$(Process).stderr
+Log = Grid_to_LHE_$(Cluster)_$(Process).log
+x509userproxy = $ENV(X509_USER_PROXY)
+arguments = $(Cluster) $(Process) $(ClusterId) $(ProcId)
+Queue 10
